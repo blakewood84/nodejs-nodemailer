@@ -1,23 +1,23 @@
 const nodeMailer = require("nodemailer");
 
 const transporter = nodeMailer.createTransport({
-  host: "smtp.gmail.com",
-  port: 465,
-  secure: true,
+  service: "gmail",
   auth: {
-    type: "OAuth2",
     user: "___",
-    serviceClient: "___",
-    privateKey:
-      "___"
+    pass: "___",
   },
 });
 
 const mailOptions = {
   from: "___",
   to: "___",
-  subject: "Test Subject",
-  text: "Some text",
+  subject: "Time Sheet",
+  text: "Here is your time sheet...",
+  attachments: [
+    {
+      path: "./attachments/timesheet.pdf",
+    },
+  ],
 };
 
 async function sendMail() {
